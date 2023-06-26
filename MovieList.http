@@ -1,0 +1,27 @@
+@host=https://localhost:7108/MovieList
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjdkNjY5ODdlLTI5NTYtNGZhZS1hNjk2LWQ0NTE4OGE1OWViYSIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWUiOiJTYWphbCIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL2dpdmVubmFtZSI6IkdoaW1pcmUiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJzYWphbHVqQGdtYWlsLmNvbSIsImp0aSI6IjVlYTU2MzY1LWJiOTAtNDUyYi04OTFjLTQ1MDIyNWJlOTc0YiIsImV4cCI6MTY4NzcwODQ5OSwiaXNzIjoiVHJhY2tJdCIsImF1ZCI6IlRyYWNrSXQifQ.4Zj0P-bQANfKBKfflEB1-qbfClTS3df5z6fi23grUqw
+
+@movieListId=64926d67-4296-40d4-9264-a4872b067535
+
+GET {{host}}
+Authorization: Bearer {{token}}
+
+###
+
+POST {{host}}/create
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+	"ListName" : "Action List"
+}
+
+###
+
+POST{{host}}/{{movieListId}}/AddMovie
+Authorization: Bearer {{token}}
+Content-Type : application/json
+
+{
+	"TMDB_ID":672
+}

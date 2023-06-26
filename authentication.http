@@ -1,0 +1,59 @@
+@host=https://localhost:7108
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjU0NzM3ZjA0LWQ1NjItNDM0MS05YzRmLTc1YjM0ZThiN2U3ZCIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWUiOiJTYWphbCIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL2dpdmVubmFtZSI6IkdoaW1pcmUiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJzYWphbHVqQGdtYWlsLmNvbSIsImp0aSI6IjY5MWU3Y2M0LWEyZDQtNDU1Ny1iMjI4LWRlMTAxOWQ5ZWRhNSIsImV4cCI6MTY4NzcwOTMxMiwiaXNzIjoiVHJhY2tJdCIsImF1ZCI6IlRyYWNrSXQifQ.h4okzuGomqbK7gQNwK54wbz9RtRg1xtO-ryDvOWwnLc
+
+POST {{host}}/authentication/register
+Content-Type: application/json
+
+{
+    "FirstName": "Sajal",
+    "LastName": "Ghimire",
+    "Email": "twittercalls3@gmail.com",
+    "Password": "Pwd12345."
+}
+
+###
+
+POST {{host}}/authentication/login
+Content-Type: application/json
+
+{
+    "Email": "sajaluj@gmail.com",
+    "Password": "Pwd12345."
+}
+###
+GET {{host}}/authentication/token
+Authorization: Bearer {{token}}
+
+###
+POST {{host}}/authentication/verify?token=1A2FB842DA97AF90341A978DB0BCB273
+Authorization: Bearer {{token}}
+Content-Type: text/plain
+
+###
+
+POST {{host}}/streamed/add
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "TMDB_ID": 673
+}
+
+###
+POST {{host}}/streamed/remove
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "TMDB_ID": 674
+}
+
+###
+GET {{host}}/streamed/MovieHistory
+Authorization: Bearer {{token}}
+
+
+###
+
+GET {{host}}/profile/details
+Authorization: Bearer {{token}}

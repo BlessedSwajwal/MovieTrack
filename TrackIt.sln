@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33205.214
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Api", "Api\Api.csproj", "{F3A3B702-3063-423B-9F3A-2C6143DFB287}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "Application\Application.csproj", "{3E4D0583-244F-499B-9752-65DE17BCA118}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{DB9C92D3-EAD2-4F4A-9B6F-323D879C6931}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{495CC710-7692-4A60-8025-7DE44884655D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contract", "Contract\Contract.csproj", "{7ECFD4A3-D860-4DA6-A495-C16A6B830438}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Request", "Request", "{A59932AF-FD9C-4F92-8D78-097C7AA440D4}"
+	ProjectSection(SolutionItems) = preProject
+		authentication.http = authentication.http
+		MovieList.http = MovieList.http
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F3A3B702-3063-423B-9F3A-2C6143DFB287}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3A3B702-3063-423B-9F3A-2C6143DFB287}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3A3B702-3063-423B-9F3A-2C6143DFB287}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3A3B702-3063-423B-9F3A-2C6143DFB287}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E4D0583-244F-499B-9752-65DE17BCA118}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E4D0583-244F-499B-9752-65DE17BCA118}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E4D0583-244F-499B-9752-65DE17BCA118}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E4D0583-244F-499B-9752-65DE17BCA118}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB9C92D3-EAD2-4F4A-9B6F-323D879C6931}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB9C92D3-EAD2-4F4A-9B6F-323D879C6931}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB9C92D3-EAD2-4F4A-9B6F-323D879C6931}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB9C92D3-EAD2-4F4A-9B6F-323D879C6931}.Release|Any CPU.Build.0 = Release|Any CPU
+		{495CC710-7692-4A60-8025-7DE44884655D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{495CC710-7692-4A60-8025-7DE44884655D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{495CC710-7692-4A60-8025-7DE44884655D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{495CC710-7692-4A60-8025-7DE44884655D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7ECFD4A3-D860-4DA6-A495-C16A6B830438}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7ECFD4A3-D860-4DA6-A495-C16A6B830438}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7ECFD4A3-D860-4DA6-A495-C16A6B830438}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7ECFD4A3-D860-4DA6-A495-C16A6B830438}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A7D7FBFF-91E5-4169-B2D9-A4BE8BE3C666}
+	EndGlobalSection
+EndGlobal
