@@ -25,6 +25,10 @@ public static class DependencyInjectionRegister
             options.UseSqlServer(configuration.GetConnectionString("TraktItDb"))
         );
 
+        //TMDB ID
+        string tmdbAPI = configuration.GetValue<string>("TMDB");
+        services.AddSingleton(tmdbAPI);
+
         services.AddScoped<IUserRepository, UserRepository>();
         services.AddScoped<IMovieListRepository, MovieListRepository>();
         services.AddScoped<IStreamedListRepository, StreamedListRepository>();

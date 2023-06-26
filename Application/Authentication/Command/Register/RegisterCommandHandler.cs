@@ -58,7 +58,7 @@ public class RegisterCommandHandler : IRequestHandler<RegisterCommand, Authentic
         var verificationToken = _generateToken.GetToken(user.Id.Value.ToString());
 
         
-        _emailService.SendVerificationEmailAsync(user.Email, verificationToken);
+        await _emailService.SendVerificationEmailAsync(user.Email, verificationToken);
 
         return new AuthenticationResult(user, token);
     }

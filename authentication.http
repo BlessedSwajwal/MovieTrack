@@ -17,7 +17,7 @@ POST {{host}}/authentication/login
 Content-Type: application/json
 
 {
-    "Email": "sajaluj@gmail.com",
+    "Email": "sajalujvw@gmail.com",
     "Password": "Pwd12345."
 }
 ###

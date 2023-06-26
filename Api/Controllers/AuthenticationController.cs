@@ -29,6 +29,12 @@ public class AuthenticationController : ControllerBase
         _mapper = mapper;
     }
 
+    [AllowAnonymous]
+    [HttpGet("check")]
+    public IActionResult Check()
+    {
+        return Ok("Working correctly.");
+    }
 
     [AllowAnonymous]
     [HttpPost("register")]

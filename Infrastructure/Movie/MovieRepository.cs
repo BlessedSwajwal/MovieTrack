@@ -1,6 +1,7 @@
 ﻿using Application.Common.Interfaces;
 using Application.StreamedContentList.Command.AddMovie;
 using Application.StreamedContentList.Common;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
@@ -14,17 +15,19 @@ namespace Infrastructure.Movie;
 public class MovieRepository : IMovieRepository
 {
     private readonly IHttpClientFactory _httpClientFactory;
+    private readonly string _tmdbToken;
 
-    public MovieRepository(IHttpClientFactory httpClientFactory)
+    public MovieRepository(IHttpClientFactory httpClientFactory, string tmdbToken)
     {
         _httpClientFactory = httpClientFactory;
+        _tmdbToken = tmdbToken;
     }
 
     public async Task<MovieResponse> GetMovieDetailsAsync(int id)
     {
         var httpClient = _httpClientFactory.CreateClient();
         httpClient.BaseAddress = new Uri("https://api.themoviedb.org/3/");
-        httpClient.DefaultRequestHeaders.Add("Authorization", "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlNDliNDVhYTkxN2Q2MTRhYmY3ZTAzNDM3YjM3ZWZhNCIsInN1YiI6IjY0OTAxODNhMjYzNDYyMDEwY2JjZDJjNCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.OnTuyzUydk1TfAnireWGQHiTDeUVdT_-1b9Y5i8qG7c");
+        httpClient.DefaultRequestHeaders.Add("Authorization", _tmdbToken);
 
         HttpResponseMessage response = await httpClient.GetAsync($"movie/{id}");
 

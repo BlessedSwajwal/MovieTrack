@@ -4,8 +4,20 @@ using Application.Authorization;
 using Infrastructure;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.Extensions.Configuration;
+using Serilog.Events;
+using Serilog.Sinks.File;
+using Serilog;
+using Serilog.Formatting.Compact;
+using Serilog.Formatting.Json;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Host.UseSerilog((context, configuration) =>
+{
+    configuration.MinimumLevel.Error();
+    configuration.WriteTo.File(path: "./logs/log.txt", rollingInterval: RollingInterval.Day, rollOnFileSizeLimit: true, formatter: new JsonFormatter());
+
+});
 
 // Add services to the container.
 
