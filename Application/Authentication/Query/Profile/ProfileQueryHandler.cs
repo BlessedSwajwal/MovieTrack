@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace Application.Authentication.Query.Profile;
 
-public class ProfileQueryHandler : IRequestHandler<ProfileQuery, User>
+public class ProfileQueryHandler : IRequestHandler<ProfileQuery, UserResult>
 {
     private readonly IUserRepository _userRepository;
     private readonly HttpContext? _context;
@@ -22,10 +22,12 @@ public class ProfileQueryHandler : IRequestHandler<ProfileQuery, User>
         _userRepository = userRepository;
         _context = context.HttpContext;
     }
-    public async Task<User> Handle(ProfileQuery request, CancellationToken cancellationToken)
+    public async Task<UserResult> Handle(ProfileQuery request, CancellationToken cancellationToken)
     {
         User? user = _userRepository.GetUserByEmail(_context.User.Claims.FirstOrDefault(cl => cl.Type == ClaimTypes.Email).Value);
         if (user is null) throw new UserNotFound();
-        return user;
+
+        var userResult = new UserResult(user.FirstName, user.LastName, user.Email);
+        return userResult;
     }
 }

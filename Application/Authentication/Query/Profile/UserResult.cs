@@ -1,5 +1,4 @@
-﻿using Domain.Users;
-using MediatR;
+﻿using Domain.Users.ValueObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,4 +7,9 @@ using System.Threading.Tasks;
 
 namespace Application.Authentication.Query.Profile;
 
-public record ProfileQuery() : IRequest<UserResult>;
+public record UserResult
+(
+    string FirstName,
+    string LastName,
+    string Email
+);

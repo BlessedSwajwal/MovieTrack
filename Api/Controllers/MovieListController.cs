@@ -1,5 +1,6 @@
 ﻿using Application.UserMovieList.Command.AddMovieToList;
 using Application.UserMovieList.Command.CreateMovieList;
+using Application.UserMovieList.Query.GetListMovies;
 using Application.UserMovieList.Query.GetUserList;
 using Contract.MovieList;
 using Domain.Users.ValueObjects;
@@ -46,5 +47,13 @@ public class MovieListController : ControllerBase
         var command = new AddMovieToListCommand(movieListId, request.TMDB_ID);
         await _mediator.Send(command);
         return Ok();
+    }
+
+    [HttpGet("{listId}/GetMovies")]
+    public async Task<IActionResult> GetListMovies([FromRoute]Guid listId)
+    {
+        var query = new GetListMoviesQuery(listId);
+        var res = await _mediator.Send(query);
+        return Ok(res);
     }
 }

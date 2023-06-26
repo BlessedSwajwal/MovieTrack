@@ -27,7 +27,7 @@ public class MovieListOwnerAuthorizationHandler : AuthorizationHandler<Operation
         if(context.User == null || resource == null) return Task.CompletedTask; 
 
         //If not asking for Adding, reject
-        if(requirement.Name != Constants.AddMovieOperationName) 
+        if(requirement.Name != Constants.AddMovieOperationName && requirement.Name != Constants.GetMoviesofList) 
             return Task.CompletedTask;
 
         //Get user
